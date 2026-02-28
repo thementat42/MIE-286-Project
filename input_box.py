@@ -11,34 +11,31 @@ class InputBox:
         self.color = COLOUR_ACTIVE
         self.text = text
         self.txt_surface = font.render(text, True, self.color)
-        self.active = True
         self.font = font
-        self.answered = False
 
     def handle_event(self, event):
-        if event.type == pg.MOUSEBUTTONDOWN:
-            # If the user clicked on the input_box rect.
-            if self.rect.collidepoint(event.pos):
-                # Toggle the active variable.
-                self.active = not self.active
-            else:
-                self.active = False
-            # Change the current color of the input box.
-            self.color = COLOUR_ACTIVE if self.active else COLOUR_INACTIVE
+        # if event.type == pg.MOUSEBUTTONDOWN:
+        #     # If the user clicked on the input_box rect.
+        #     if self.rect.collidepoint(event.pos):
+        #         # Toggle the active variable.
+        #         self.active = not self.active
+        #     else:
+        #         self.active = False
+        #     # Change the current color of the input box.
+        #     self.color = COLOUR_ACTIVE if self.active else COLOUR_INACTIVE
+        tmp = None
         if event.type == pg.KEYDOWN:
-            if self.active:
-                if event.key == pg.K_RETURN:
-                    tmp = self.text
-                    self.text = ''
-                    self.answered = True
-                    return tmp
-                elif event.key == pg.K_BACKSPACE:
-                    self.text = self.text[:-1]
-                else:
-                    if event.unicode.isdigit() or event.unicode == ".":
-                        self.text += event.unicode
-                # Re-render the text.
-                self.txt_surface = self.font.render(self.text, True, self.color)
+            if event.key == pg.K_RETURN:
+                tmp = self.text
+                self.text = ''
+            elif event.key == pg.K_BACKSPACE:
+                self.text = self.text[:-1]
+            else:
+                if event.unicode.isdigit() or event.unicode == ".":
+                    self.text += event.unicode
+            # Re-render the text.
+            self.txt_surface = self.font.render(self.text, True, self.color)
+            return tmp
 
     def update(self):
         # Resize the box if the text is too long.
