@@ -1,3 +1,4 @@
+from enum import Enum
 import os
 import random
 
@@ -9,9 +10,15 @@ import json
 USER_ANSWER_KEY = "user_answer"
 ERROR_KEY = "percent_error"
 ANSWERED_KEY = "answered"
+TIME_KEY = "time_taken"
 TIME_LIMIT_SECONDS = 10
 
 AnswerType = dict[str, str|int|float|None|bool]
+
+class Mode(Enum):
+    BASELINE = 0
+    LOSS_BASED = 1
+    GAIN_BASED = 2
 
 def get_problems(filename: str = "problems.json"):
     with open(filename, "r") as f:
@@ -25,7 +32,7 @@ def draw_problem(problem: dict[str, str|int], screen: pg.Surface, font: pg.font.
     problem_surface = font.render(str(problem[PROBLEM_KEY]), True, colour)
     screen.blit(problem_surface, location)
 
-def make_log_entry(problem: dict[str, str|int], user_answer: int|None) -> AnswerType:
+def make_log_entry(problem: dict[str, str|int], user_answer: int|None, time_taken: float) -> AnswerType:
     prob = problem[PROBLEM_KEY]
     sol = int(problem[SOLUTION_KEY])
     answered = user_answer is not None
@@ -38,11 +45,12 @@ def make_log_entry(problem: dict[str, str|int], user_answer: int|None) -> Answer
         SOLUTION_KEY: sol,
         USER_ANSWER_KEY: user_answer if user_answer is not None else 0,
         ERROR_KEY: error,
-        ANSWERED_KEY: answered
+        ANSWERED_KEY: answered,
+        TIME_KEY: time_taken
     }
 
 
-def main(output_filename: str = "x.test.json"):
+def main(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
     pg.init()
     _font = pg.font.Font(None, 32)
     screen = pg.display.set_mode((640, 480))
@@ -64,16 +72,16 @@ def main(output_filename: str = "x.test.json"):
             for box in input_boxes:
                 result = box.handle_event(event)
         
-        if result is not None and result != "":
-            answers.append(x := make_log_entry(current_problem, int(result)))
+        elapsed_milliseconds = pg.time.get_ticks() - problem_start
+        remaining = TIME_LIMIT_SECONDS - (elapsed_milliseconds/1000.0)
+
+        if remaining <= 0 and mode != Mode.BASELINE:
+            answers.append(x := make_log_entry(current_problem, None, TIME_LIMIT_SECONDS))
             print(x)
             result = None
             current_problem = random.choice(problems)
-        
-        elapsed_milliseconds = pg.time.get_ticks() - problem_start
-        remaining = TIME_LIMIT_SECONDS - (elapsed_milliseconds/1000.0)
-        if remaining <= 0:
-            answers.append(x := make_log_entry(current_problem, None))
+        elif result is not None and result != "":
+            answers.append(x := make_log_entry(current_problem, int(result), elapsed_milliseconds))
             print(x)
             result = None
             current_problem = random.choice(problems)
