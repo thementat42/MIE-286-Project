@@ -9,8 +9,8 @@ def get_problems(filename = "problems.json"):
         data = json.load(f)
     return data
 
-def get_percentage_error(problem: dict[str, str], user_solution: float):
-    correct_solution = float(problem["solution"])
+def get_percentage_error(problem: dict[str, str|int], user_solution: int):
+    correct_solution = int(problem["solution"])
     return abs((user_solution - correct_solution)/correct_solution)
 
 def draw_problem(problem: dict[str, str], screen: pg.Surface, font: pg.font.Font, location = (50, 50), colour = (255, 255, 255)):
@@ -39,7 +39,7 @@ def main():
         
         if result is not None and result != "":
             print(f"Answered {result}")
-            print(get_percentage_error(current_problem, float(result)))
+            print(get_percentage_error(current_problem, int(result)))
             result = None
             current_problem = random.choice(problems)
 
