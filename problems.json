@@ -1,6 +1,406 @@
 [
     {
         "problem": "1+23",
-        "solution": 24.0
+        "solution": 24
+    },
+    {
+        "problem": "30 - 6",
+        "solution": 24
+    },
+    {
+        "problem": "2 * 27",
+        "solution": 54
+    },
+    {
+        "problem": "4 * 52",
+        "solution": 208
+    },
+    {
+        "problem": "13 - 6",
+        "solution": 7
+    },
+    {
+        "problem": "9 * 53",
+        "solution": 477
+    },
+    {
+        "problem": "71 - 7",
+        "solution": 64
+    },
+    {
+        "problem": "7 - 2",
+        "solution": 5
+    },
+    {
+        "problem": "108 / 3",
+        "solution": 36
+    },
+    {
+        "problem": "426 / 6",
+        "solution": 71
+    },
+    {
+        "problem": "176 / 8",
+        "solution": 22
+    },
+    {
+        "problem": "8 * 90",
+        "solution": 720
+    },
+    {
+        "problem": "873 / 9",
+        "solution": 97
+    },
+    {
+        "problem": "4 * 76",
+        "solution": 304
+    },
+    {
+        "problem": "6 * 46",
+        "solution": 276
+    },
+    {
+        "problem": "522 / 6",
+        "solution": 87
+    },
+    {
+        "problem": "66 / 2",
+        "solution": 33
+    },
+    {
+        "problem": "82 / 2",
+        "solution": 41
+    },
+    {
+        "problem": "6 * 86",
+        "solution": 516
+    },
+    {
+        "problem": "3 + 19",
+        "solution": 22
+    },
+    {
+        "problem": "89 - 9",
+        "solution": 80
+    },
+    {
+        "problem": "3 + 58",
+        "solution": 61
+    },
+    {
+        "problem": "4 * 78",
+        "solution": 312
+    },
+    {
+        "problem": "8 * 11",
+        "solution": 88
+    },
+    {
+        "problem": "7 + 87",
+        "solution": 94
+    },
+    {
+        "problem": "8 * 41",
+        "solution": 328
+    },
+    {
+        "problem": "12 / 2",
+        "solution": 6
+    },
+    {
+        "problem": "3 * 99",
+        "solution": 297
+    },
+    {
+        "problem": "7 * 39",
+        "solution": 273
+    },
+    {
+        "problem": "656 / 8",
+        "solution": 82
+    },
+    {
+        "problem": "8 + 9",
+        "solution": 17
+    },
+    {
+        "problem": "873 / 9",
+        "solution": 97
+    },
+    {
+        "problem": "2 * 23",
+        "solution": 46
+    },
+    {
+        "problem": "38 - 4",
+        "solution": 34
+    },
+    {
+        "problem": "64 - 5",
+        "solution": 59
+    },
+    {
+        "problem": "72 / 6",
+        "solution": 12
+    },
+    {
+        "problem": "7 + 85",
+        "solution": 92
+    },
+    {
+        "problem": "97 - 6",
+        "solution": 91
+    },
+    {
+        "problem": "2 + 29",
+        "solution": 31
+    },
+    {
+        "problem": "9 * 29",
+        "solution": 261
+    },
+    {
+        "problem": "77 - 3",
+        "solution": 74
+    },
+    {
+        "problem": "65 - 6",
+        "solution": 59
+    },
+    {
+        "problem": "54 - 7",
+        "solution": 47
+    },
+    {
+        "problem": "148 / 4",
+        "solution": 37
+    },
+    {
+        "problem": "36 / 9",
+        "solution": 4
+    },
+    {
+        "problem": "9 * 33",
+        "solution": 297
+    },
+    {
+        "problem": "7 * 40",
+        "solution": 280
+    },
+    {
+        "problem": "53 - 4",
+        "solution": 49
+    },
+    {
+        "problem": "4 * 66",
+        "solution": 264
+    },
+    {
+        "problem": "34 - 8",
+        "solution": 26
+    },
+    {
+        "problem": "5 * 97",
+        "solution": 485
+    },
+    {
+        "problem": "2 * 63",
+        "solution": 126
+    },
+    {
+        "problem": "4 * 47",
+        "solution": 188
+    },
+    {
+        "problem": "190 / 2",
+        "solution": 95
+    },
+    {
+        "problem": "3 + 61",
+        "solution": 64
+    },
+    {
+        "problem": "9 * 29",
+        "solution": 261
+    },
+    {
+        "problem": "4 + 8",
+        "solution": 12
+    },
+    {
+        "problem": "9 * 5",
+        "solution": 45
+    },
+    {
+        "problem": "3 + 76",
+        "solution": 79
+    },
+    {
+        "problem": "94 - 2",
+        "solution": 92
+    },
+    {
+        "problem": "4 * 35",
+        "solution": 140
+    },
+    {
+        "problem": "6 + 62",
+        "solution": 68
+    },
+    {
+        "problem": "11 - 7",
+        "solution": 4
+    },
+    {
+        "problem": "17 - 4",
+        "solution": 13
+    },
+    {
+        "problem": "8 * 4",
+        "solution": 32
+    },
+    {
+        "problem": "6 + 79",
+        "solution": 85
+    },
+    {
+        "problem": "6 + 71",
+        "solution": 77
+    },
+    {
+        "problem": "44 - 9",
+        "solution": 35
+    },
+    {
+        "problem": "6 - 5",
+        "solution": 1
+    },
+    {
+        "problem": "11 - 4",
+        "solution": 7
+    },
+    {
+        "problem": "71 - 9",
+        "solution": 62
+    },
+    {
+        "problem": "44 / 2",
+        "solution": 22
+    },
+    {
+        "problem": "29 - 5",
+        "solution": 24
+    },
+    {
+        "problem": "427 / 7",
+        "solution": 61
+    },
+    {
+        "problem": "3 + 46",
+        "solution": 49
+    },
+    {
+        "problem": "6 * 4",
+        "solution": 24
+    },
+    {
+        "problem": "5 * 6",
+        "solution": 30
+    },
+    {
+        "problem": "5 * 19",
+        "solution": 95
+    },
+    {
+        "problem": "3 * 54",
+        "solution": 162
+    },
+    {
+        "problem": "36 - 3",
+        "solution": 33
+    },
+    {
+        "problem": "79 - 9",
+        "solution": 70
+    },
+    {
+        "problem": "5 * 57",
+        "solution": 285
+    },
+    {
+        "problem": "4 + 59",
+        "solution": 63
+    },
+    {
+        "problem": "2 + 23",
+        "solution": 25
+    },
+    {
+        "problem": "77 - 9",
+        "solution": 68
+    },
+    {
+        "problem": "115 / 5",
+        "solution": 23
+    },
+    {
+        "problem": "4 + 52",
+        "solution": 56
+    },
+    {
+        "problem": "3 + 36",
+        "solution": 39
+    },
+    {
+        "problem": "5 * 33",
+        "solution": 165
+    },
+    {
+        "problem": "7 * 99",
+        "solution": 693
+    },
+    {
+        "problem": "6 * 77",
+        "solution": 462
+    },
+    {
+        "problem": "8 + 20",
+        "solution": 28
+    },
+    {
+        "problem": "150 / 5",
+        "solution": 30
+    },
+    {
+        "problem": "4 + 50",
+        "solution": 54
+    },
+    {
+        "problem": "243 / 3",
+        "solution": 81
+    },
+    {
+        "problem": "4 + 96",
+        "solution": 100
+    },
+    {
+        "problem": "49 - 7",
+        "solution": 42
+    },
+    {
+        "problem": "36 / 4",
+        "solution": 9
+    },
+    {
+        "problem": "180 / 9",
+        "solution": 20
+    },
+    {
+        "problem": "3 * 8",
+        "solution": 24
+    },
+    {
+        "problem": "6 + 73",
+        "solution": 79
     }
 ]
