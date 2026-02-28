@@ -41,7 +41,7 @@ def make_log_entry(problem: dict[str, str|int], user_answer: int|None) -> Answer
     }
 
 
-def main(output_filename: str = "test.json"):
+def main(output_filename: str = "x.test.json"):
     pg.init()
     _font = pg.font.Font(None, 32)
     screen = pg.display.set_mode((640, 480))
