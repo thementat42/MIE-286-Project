@@ -1,3 +1,4 @@
+import os
 import random
 
 from input_box import InputBox
@@ -77,7 +78,9 @@ def main(output_filename: str = "test.json"):
 
         pg.display.flip()
     
-    with open(output_filename, 'w') as f:
+    if not os.path.isdir("data"):
+        os.mkdir("data")
+    with open(os.path.join("data", output_filename), 'w') as f:
         f.write(json.dumps(answers, indent = 4))
 
 if __name__ == "__main__":
