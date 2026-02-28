@@ -1,6 +1,6 @@
 import random
 
-from input_box import InputBox, COLOUR_ACTIVE, COLOUR_INACTIVE
+from input_box import InputBox
 import pygame as pg
 import json
 
@@ -25,13 +25,14 @@ def main():
     result = None
 
     while not done:
+        pressed = pg.key.get_pressed()
         for event in pg.event.get():
-            if event.type == pg.QUIT:
+            if event.type == pg.KEYDOWN and event.key == pg.K_q and pressed[pg.K_LSHIFT] and pressed[pg.K_LALT]:
                 done = True
             for box in input_boxes:
                 result = box.handle_event(event)
         
-        if result is not None:
+        if result is not None and result != "":
             print(f"Answered {result}")
             print(get_percentage_error(current_problem, float(result)))
             result = None
@@ -45,7 +46,6 @@ def main():
             box.draw(screen)
 
         pg.display.flip()
-        clock.tick(30)
 
 if __name__ == "__main__":
     main()
