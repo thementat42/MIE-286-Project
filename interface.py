@@ -1,33 +1,57 @@
 import random
 
 from input_box import InputBox
+from problem_generator import PROBLEM_KEY, SOLUTION_KEY
 import pygame as pg
 import json
 
-def get_problems(filename = "problems.json"):
+USER_ANSWER_KEY = "user_answer"
+ERROR_KEY = "percent_error"
+ANSWERED_KEY = "answered"
+
+AnswerType = dict[str, str|int|float|None|bool]
+
+def get_problems(filename: str = "problems.json"):
     with open(filename, "r") as f:
         data = json.load(f)
     return data
 
-def get_percentage_error(problem: dict[str, str|int], user_solution: int):
-    correct_solution = int(problem["solution"])
+def get_percentage_error(correct_solution: int, user_solution: int) -> float:
     return abs((user_solution - correct_solution)/correct_solution)
 
-def draw_problem(problem: dict[str, str], screen: pg.Surface, font: pg.font.Font, location = (50, 50), colour = (255, 255, 255)):
-    problem_surface = font.render(problem["problem"], True, colour)
+def draw_problem(problem: dict[str, str|int], screen: pg.Surface, font: pg.font.Font, location: tuple[int,int] = (50, 50), colour: tuple[int, int, int] = (255, 255, 255)):
+    problem_surface = font.render(str(problem[PROBLEM_KEY]), True, colour)
     screen.blit(problem_surface, location)
 
-def main():
+def make_log_entry(problem: dict[str, str|int], user_answer: int|None) -> AnswerType:
+    prob = problem[PROBLEM_KEY]
+    sol = int(problem[SOLUTION_KEY])
+    answered = user_answer is not None
+    if answered:
+        error = get_percentage_error(sol, user_answer)
+    else:
+        error = None
+    return {
+        PROBLEM_KEY: prob,
+        SOLUTION_KEY: sol,
+        USER_ANSWER_KEY: user_answer if user_answer is not None else 0,
+        ERROR_KEY: error,
+        ANSWERED_KEY: answered
+    }
+
+
+def main(output_filename: str = "test.json"):
     pg.init()
     _font = pg.font.Font(None, 32)
     screen = pg.display.set_mode((640, 480))
-    clock = pg.time.Clock()
+    #clock = pg.time.Clock()
     input_box = InputBox(100, 100, 140, 32, _font)
     input_boxes = [input_box]
     done = False
     problems = get_problems()
     current_problem = random.choice(problems)
     result = None
+    answers: list[AnswerType] = []
 
     while not done:
         pressed = pg.key.get_pressed()
@@ -38,8 +62,8 @@ def main():
                 result = box.handle_event(event)
         
         if result is not None and result != "":
-            print(f"Answered {result}")
-            print(get_percentage_error(current_problem, int(result)))
+            answers.append(x := make_log_entry(current_problem, int(result)))
+            print(x)
             result = None
             current_problem = random.choice(problems)
 
@@ -52,6 +76,9 @@ def main():
             box.draw(screen)
 
         pg.display.flip()
+    
+    with open(output_filename, 'w') as f:
+        f.write(json.dumps(answers, indent = 4))
 
 if __name__ == "__main__":
     main()

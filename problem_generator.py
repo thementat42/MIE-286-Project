@@ -1,7 +1,10 @@
 import json
 import random
 
-def calculate_answer(num1, num2, op):
+PROBLEM_KEY = "problem"
+SOLUTION_KEY = "solution"
+
+def calculate_answer(num1: int, num2: int, op: str) -> int:
     if op == '+':
         return num1 + num2
     elif op == '-':
@@ -10,8 +13,11 @@ def calculate_answer(num1, num2, op):
         return num1 * num2
     elif op == '/':
         return num1 // num2
+    else:
+        # unreachable
+        return 0
 
-def generate_problem():
+def generate_problem() -> tuple[int, int, str, int]:
     operators = ['+', '-', '*', '/']
     op = random.choice(operators)
     num1 = random.randint(2, 9)  # 1-digit number
@@ -25,16 +31,17 @@ def generate_problem():
         num1, num2 = max(num1, num2), min(num1, num2) # make sure num1 > num2
     solution = calculate_answer(num1, num2, op)
     if solution == 0:
-        generate_problem()  # an answer of 0 makes errors infinity
+        return generate_problem()  # an answer of 0 makes errors infinity
     return num1, num2, op, solution
 
-def generate_problems(filename = "problems.json"):
+def generate_problems(filename: str = "problems.json"):
     with open(filename, 'r') as f:
-        data: list = json.load(f)
-        for i in range(100):
+        data: list[dict[str, str|int]] = json.load(f)
+        for _ in range(100):
             num1, num2, op, solution = generate_problem()
-            data.append({"problem" : f"{num1} {op} {num2}", f"solution" : solution})
+            data.append({PROBLEM_KEY : f"{num1} {op} {num2}", SOLUTION_KEY : solution})
     with open(filename, 'w') as f:
         json.dump(data, f)
 
-generate_problems()
+if __name__ == "__main__":
+    generate_problems()
