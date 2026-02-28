@@ -9,6 +9,7 @@ import json
 USER_ANSWER_KEY = "user_answer"
 ERROR_KEY = "percent_error"
 ANSWERED_KEY = "answered"
+TIME_LIMIT_SECONDS = 10
 
 AnswerType = dict[str, str|int|float|None|bool]
 
@@ -45,7 +46,6 @@ def main(output_filename: str = "x.test.json"):
     pg.init()
     _font = pg.font.Font(None, 32)
     screen = pg.display.set_mode((640, 480))
-    #clock = pg.time.Clock()
     input_box = InputBox(100, 100, 140, 32, _font)
     input_boxes = [input_box]
     done = False
@@ -53,6 +53,8 @@ def main(output_filename: str = "x.test.json"):
     current_problem = random.choice(problems)
     result = None
     answers: list[AnswerType] = []
+
+    problem_start = pg.time.get_ticks()
 
     while not done:
         pressed = pg.key.get_pressed()
@@ -67,6 +69,14 @@ def main(output_filename: str = "x.test.json"):
             print(x)
             result = None
             current_problem = random.choice(problems)
+        
+        elapsed_milliseconds = pg.time.get_ticks() - problem_start
+        remaining = TIME_LIMIT_SECONDS - (elapsed_milliseconds/1000.0)
+        if remaining <= 0:
+            answers.append(x := make_log_entry(current_problem, None))
+            print(x)
+            result = None
+            current_problem = random.choice(problems)
 
         for box in input_boxes:
             box.update()
@@ -75,6 +85,9 @@ def main(output_filename: str = "x.test.json"):
         draw_problem(current_problem, screen, _font)
         for box in input_boxes:
             box.draw(screen)
+        timer_surface = _font.render(f"Time: {max(0, remaining):.1f}s", True, (255, 255, 255))
+        timer_pos = (screen.get_width() - timer_surface.get_width() - 20, 20)
+        screen.blit(timer_surface, timer_pos)
 
         pg.display.flip()
     
