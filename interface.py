@@ -9,15 +9,20 @@ def get_problems(filename = "problems.json"):
         data = json.load(f)
     return data
 
-def get_percentage_error(problem: dict[str, str], user_solution):
-    correct_solution = problem["solution"]
+def get_percentage_error(problem: dict[str, str], user_solution: float):
+    correct_solution = float(problem["solution"])
     return abs((user_solution - correct_solution)/correct_solution)
+
+def draw_problem(problem: dict[str, str], screen: pg.Surface, font: pg.font.Font, location = (50, 50), colour = (255, 255, 255)):
+    problem_surface = font.render(problem["problem"], True, colour)
+    screen.blit(problem_surface, location)
 
 def main():
     pg.init()
+    _font = pg.font.Font(None, 32)
     screen = pg.display.set_mode((640, 480))
     clock = pg.time.Clock()
-    input_box = InputBox(100, 100, 140, 32, pg.font.Font(None, 32))
+    input_box = InputBox(100, 100, 140, 32, _font)
     input_boxes = [input_box]
     done = False
     problems = get_problems()
@@ -42,6 +47,7 @@ def main():
             box.update()
 
         screen.fill((30, 30, 30))
+        draw_problem(current_problem, screen, _font)
         for box in input_boxes:
             box.draw(screen)
 
