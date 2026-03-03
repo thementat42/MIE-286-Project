@@ -2,11 +2,11 @@ import argparse
 import os
 import uuid
 
-import interface
+from interface import interface, Mode
 
 TESTING = True
 
-def get_mode_from_argv() -> interface.Mode:
+def get_mode_from_argv() -> Mode:
     arg_parser = argparse.ArgumentParser()
 
     arg_parser.add_argument(
@@ -37,30 +37,30 @@ def get_mode_from_argv() -> interface.Mode:
 
     args = arg_parser.parse_args()
 
-    mode: interface.Mode|None = None
+    mode: Mode|None = None
 
     if args.mode:
         match args.mode:
-            case "baseline": mode = interface.Mode.BASELINE
-            case "loss": interface.Mode.LOSS_BASED
-            case "gain": interface.Mode.GAIN_BASED
+            case "baseline": mode = Mode.BASELINE
+            case "loss": Mode.LOSS_BASED
+            case "gain": Mode.GAIN_BASED
             case _: raise Exception("Invalid mode")
 
     if args.baseline:
         if mode is not None:
             raise Exception("Baseline flag passed but mode was already set using the mode argument")
-        mode = interface.Mode.BASELINE
+        mode = Mode.BASELINE
     if args.loss:
         if mode is not None:
             raise Exception("Loss-based flag passed but mode was already set using the mode argument")
-        mode = interface.Mode.LOSS_BASED
+        mode = Mode.LOSS_BASED
     if args.gain:
         if mode is not None:
             raise Exception("Gain-based flag passed but mode was already set using the mode argument")
-        mode = interface.Mode.GAIN_BASED
+        mode = Mode.GAIN_BASED
     if mode is None:
         print("Warning: No mode set. Defaulting to baseline")
-        mode = interface.Mode.BASELINE
+        mode = Mode.BASELINE
     return mode
 
 def get_uuid_based_filename(data_directory: str = "data") -> str:
@@ -76,9 +76,10 @@ def get_uuid_based_filename(data_directory: str = "data") -> str:
 
 
 def main():
+    # you can also set this manually using Mode.the_mode_you_want
     mode = get_mode_from_argv()
     filename = get_uuid_based_filename()
-    interface.interface(filename, mode)
+    interface(filename, mode)
 
 if __name__ == "__main__":
     main()
