@@ -59,7 +59,7 @@ def make_log_entry(problem: dict[str, str|int], user_answer: int|None, time_take
     }
 
 
-def main(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
+def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
     pg.init()
     _font = pg.font.Font(None, 32)
     screen = pg.display.set_mode((640, 480))
@@ -130,4 +130,4 @@ def main(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
         f.write(json.dumps(answers, indent = 4))
 
 if __name__ == "__main__":
-    main()
+    interface()
