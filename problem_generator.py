@@ -3,6 +3,8 @@ import random
 
 PROBLEM_KEY = "problem"
 SOLUTION_KEY = "solution"
+INCORRECT_KEY_1 = "option1"
+INCORRECT_KEY_2 = "option2"
 
 def calculate_answer(num1: int, num2: int, op: str) -> int:
     if op == '+':
@@ -39,7 +41,7 @@ def generate_problems(filename: str = "problems.json"):
         data: list[dict[str, str|int]] = json.load(f)
         for _ in range(100):
             num1, num2, op, solution = generate_problem()
-            data.append({PROBLEM_KEY : f"{num1} {op} {num2}", SOLUTION_KEY : solution})
+            data.append({PROBLEM_KEY : f"{num1} {op} {num2}", SOLUTION_KEY : solution, INCORRECT_KEY_1: random.randint(2, 99), INCORRECT_KEY_2: random.randint(2, 99)})
     with open(filename, 'w') as f:
         json.dump(data, f)
 

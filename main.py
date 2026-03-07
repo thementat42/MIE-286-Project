@@ -6,6 +6,12 @@ from interface import interface, Mode
 
 TESTING = True
 
+def mode_to_str(mode: Mode):
+    match mode:
+        case Mode.BASELINE: return "baseline"
+        case Mode.LOSS_BASED: "lossbased"
+        case Mode.GAIN_BASED: "gainbased"
+
 def get_mode_from_argv() -> Mode:
     arg_parser = argparse.ArgumentParser()
 
@@ -63,13 +69,13 @@ def get_mode_from_argv() -> Mode:
         mode = Mode.BASELINE
     return mode
 
-def get_uuid_based_filename(data_directory: str = "data") -> str:
+def get_uuid_based_filename(mode: Mode, data_directory: str = "data") -> str:
     if TESTING:
         print("Warning: Test mode enabled. If this is an active test, set testing mode to false then re-run the script.")
         return "x.test.json"
     os.makedirs(data_directory, exist_ok=True)
     while True:
-        filename = f"{uuid.uuid4()}.json"
+        filename = f"{uuid.uuid4()}_{mode_to_str(mode)}.json"
         file_path = os.path.join(data_directory, filename)
         if not os.path.exists(file_path):
             return filename
@@ -78,7 +84,7 @@ def get_uuid_based_filename(data_directory: str = "data") -> str:
 def main():
     # you can also set this manually using Mode.the_mode_you_want
     mode = get_mode_from_argv()
-    filename = get_uuid_based_filename()
+    filename = get_uuid_based_filename(mode)
     interface(filename, mode)
 
 if __name__ == "__main__":
