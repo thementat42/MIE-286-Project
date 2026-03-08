@@ -5,10 +5,13 @@ import sys
 import time
 
 from button import Button
-from problem_generator import PROBLEM_KEY, SOLUTION_KEY, INCORRECT_KEY_1, INCORRECT_KEY_2
 import pygame as pg
 import json
 
+PROBLEM_KEY = "problem"
+SOLUTION_KEY = "solution"
+INCORRECT_KEY_1 = "option1"
+INCORRECT_KEY_2 = "option2"
 USER_ANSWER_KEY = "user_answer"
 CORRECT_KEY = "correct"
 ANSWERED_KEY = "answered"
