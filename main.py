@@ -16,14 +16,6 @@ def get_mode_from_argv() -> Mode:
     arg_parser = argparse.ArgumentParser()
 
     arg_parser.add_argument(
-        "-m", "--mode",
-        type = str,
-        choices=["baseline", "loss", "gain"],
-        default = "baseline",
-        help = "Set the mode for the test"
-    )
-
-    arg_parser.add_argument(
         "-b", "--baseline",
         action = "store_true",
         help = "Run the test in baseline mode"
@@ -44,13 +36,6 @@ def get_mode_from_argv() -> Mode:
     args = arg_parser.parse_args()
 
     mode: Mode|None = None
-
-    if args.mode:
-        match args.mode:
-            case "baseline": mode = Mode.BASELINE
-            case "loss": Mode.LOSS_BASED
-            case "gain": Mode.GAIN_BASED
-            case _: raise Exception("Invalid mode")
 
     if args.baseline:
         if mode is not None:
