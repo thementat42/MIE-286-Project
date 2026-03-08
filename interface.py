@@ -93,7 +93,7 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
 
         if remaining <= 0 or result is not None:
             time_taken = (TIME_LIMIT_SECONDS if (remaining <= 0 and result is None) else elapsed_milliseconds) 
-            answer = make_log_entry(current_problem, None, time_taken)
+            answer = make_log_entry(current_problem, result, time_taken)
             answers.append(answer)
             result = None
 
