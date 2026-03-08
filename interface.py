@@ -1,6 +1,7 @@
 from enum import Enum
 import os
 import random
+import sys
 import time
 
 from button import Button
@@ -83,7 +84,7 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
         pressed = pg.key.get_pressed()
         for event in pg.event.get():
             if event.type == pg.KEYDOWN and event.key == pg.K_q and pressed[pg.K_LSHIFT] and pressed[pg.K_LALT]:
-                done = True
+                sys.exit(1)
             for button in buttons:
                 result = button.handle_event(event)
                 if result is not None: break
@@ -101,7 +102,6 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
             problem_start = pg.time.get_ticks()
 
             current_problem = random.choice(problems)
-            print(current_problem)
             choices = [current_problem[SOLUTION_KEY], current_problem[INCORRECT_KEY_1],current_problem[INCORRECT_KEY_2]]
             random.shuffle(choices)
             for answer, button in zip(choices, buttons):
