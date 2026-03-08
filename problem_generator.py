@@ -46,4 +46,4 @@ def generate_problems(filename: str = "problems.json"):
         json.dump(data, f)
 
 if __name__ == "__main__":
-    generate_problems()
+    generate_problems("problems_baseline.json")

@@ -4,7 +4,7 @@ import uuid
 
 from interface import interface, Mode
 
-TESTING = False
+TESTING = True
 
 def mode_to_str(mode: Mode):
     match mode:

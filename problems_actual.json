@@ -1,0 +1,122 @@
+[
+    {
+        "problem": "48 * 25",
+        "solution": 1200,
+        "option1": 1250,
+        "option2": 1150
+    },
+    {
+        "problem": "96 / 12",
+        "solution": 8,
+        "option1": 6,
+        "option2": 9
+    },
+    {
+        "problem": "375 + 468",
+        "solution": 843,
+        "option1": 833,
+        "option2": 853
+    },
+    {
+        "problem": "1200 - 475",
+        "solution": 725,
+        "option1": 735,
+        "option2": 715
+    },
+    {
+        "problem": "36 * 24",
+        "solution": 864,
+        "option1": 844,
+        "option2": 884
+    },
+    {
+        "problem": "144 / 12",
+        "solution": 12,
+        "option1": 14,
+        "option2": 10
+    },
+    {
+        "problem": "584 + 376",
+        "solution": 960,
+        "option1": 950,
+        "option2": 970
+    },
+    {
+        "problem": "1500 - 680",
+        "solution": 820,
+        "option1": 830,
+        "option2": 810
+    },
+    {
+        "problem": "45 * 18",
+        "solution": 810,
+        "option1": 800,
+        "option2": 840
+    },
+    {
+        "problem": "168 / 14",
+        "solution": 12,
+        "option1": 14,
+        "option2": 10
+    },
+    {
+        "problem": "739 + 285",
+        "solution": 1024,
+        "option1": 1014,
+        "option2": 1034
+    },
+    {
+        "problem": "2000 - 945",
+        "solution": 1055,
+        "option1": 1045,
+        "option2": 1065
+    },
+    {
+        "problem": "32 * 27",
+        "solution": 864,
+        "option1": 844,
+        "option2": 884
+    },
+    {
+        "problem": "225 / 15",
+        "solution": 15,
+        "option1": 14,
+        "option2": 18
+    },
+    {
+        "problem": "468 + 357",
+        "solution": 825,
+        "option1": 815,
+        "option2": 835
+    },
+    {
+        "problem": "1800 - 760",
+        "solution": 1040,
+        "option1": 1030,
+        "option2": 1050
+    },
+    {
+        "problem": "42 * 16",
+        "solution": 672,
+        "option1": 652,
+        "option2": 692
+    },
+    {
+        "problem": "192 / 16",
+        "solution": 12,
+        "option1": 10,
+        "option2": 14
+    },
+    {
+        "problem": "856 + 179",
+        "solution": 1035,
+        "option1": 1025,
+        "option2": 1045
+    },
+    {
+        "problem": "1400 - 575",
+        "solution": 825,
+        "option1": 815,
+        "option2": 835
+    }
+]

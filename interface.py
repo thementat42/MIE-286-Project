@@ -64,11 +64,12 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
     screen = pg.display.set_mode((640, 480))
     done = False
 
-    problems = get_problems()
-    current_problem = random.choice(problems)
+    problems = get_problems(f"problems_{'baseline' if mode == Mode.BASELINE else 'actual'}.json")
+    random.shuffle(problems)
     result = None
     answers: list[AnswerType] = []
     points = 20 if mode == Mode.LOSS_BASED else 0
+    current_problem = problems[len(answers)]
 
     choices = [current_problem[SOLUTION_KEY], current_problem[INCORRECT_KEY_1],current_problem[INCORRECT_KEY_2]]
     random.shuffle(choices)
@@ -101,7 +102,7 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
             points = get_new_points(points, mode, answer[USER_ANSWER_KEY] == answer[SOLUTION_KEY])
             problem_start = pg.time.get_ticks()
 
-            current_problem = random.choice(problems)
+            current_problem = problems[len(answers)]
             choices = [current_problem[SOLUTION_KEY], current_problem[INCORRECT_KEY_1],current_problem[INCORRECT_KEY_2]]
             random.shuffle(choices)
             for answer, button in zip(choices, buttons):
