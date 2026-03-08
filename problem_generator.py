@@ -22,8 +22,8 @@ def calculate_answer(num1: int, num2: int, op: str) -> int:
 def generate_problem() -> tuple[int, int, str, int]:
     operators = ['+', '-', '*', '/']
     op = random.choice(operators)
-    num1 = random.randint(2, 9)  # 1-digit number
-    num2 = random.randint(2, 99)  # 2-digit number
+    num1 = random.randint(2, 999)
+    num2 = random.randint(2, 999)
 
     if op == '/':
         # Ensure the division results in an integer
