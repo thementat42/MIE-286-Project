@@ -1,6 +1,7 @@
 from enum import Enum
 import os
 import random
+import time
 
 from button import Button
 from problem_generator import PROBLEM_KEY, SOLUTION_KEY, INCORRECT_KEY_1, INCORRECT_KEY_2
@@ -12,6 +13,7 @@ CORRECT_KEY = "correct"
 ANSWERED_KEY = "answered"
 TIME_KEY = "time_taken"
 TIME_LIMIT_SECONDS = 10
+NUM_QUESTIONS = 20
 
 AnswerType = dict[str, str|int|float|None|bool]
 
@@ -119,7 +121,18 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
             screen.blit(points_surface, points_pos)
 
         pg.display.flip()
+
+        if (len(answers) == NUM_QUESTIONS):
+            screen.fill((30, 30, 30))
+            done_text = _font.render("Test Complete!", True, (0, 255, 0))
+            done_pos = (screen.get_width() - done_text.get_width() - 20, 20)
+            screen.blit(done_text, done_pos)
+            pg.display.flip()
+            time.sleep(5)
+            done = True
         
+
+
     if not os.path.isdir("data"):
         os.mkdir("data")
     with open(os.path.join("data", output_filename), 'w') as f:
