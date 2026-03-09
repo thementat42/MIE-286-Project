@@ -96,7 +96,7 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
         elapsed_milliseconds = pg.time.get_ticks() - problem_start
         remaining = TIME_LIMIT_SECONDS - (elapsed_milliseconds/1000.0)
 
-        if (len(answers) == NUM_QUESTIONS):
+        if (len(answers) == min(NUM_QUESTIONS, len(problems))):
             screen.fill((30, 30, 30))
             done_text = _font.render("Test Complete!", True, (0, 255, 0))
             done_pos = (screen.get_width() - done_text.get_width() - 20, 20)
