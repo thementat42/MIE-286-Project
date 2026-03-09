@@ -12,6 +12,9 @@ def mode_to_str(mode: Mode):
         case Mode.LOSS_BASED: "lossbased"
         case Mode.GAIN_BASED: "gainbased"
 
+# python main.py --loss 
+# python main.py --gain
+
 def get_mode_from_argv() -> Mode:
     arg_parser = argparse.ArgumentParser()
 
