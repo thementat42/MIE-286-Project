@@ -96,7 +96,16 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
         elapsed_milliseconds = pg.time.get_ticks() - problem_start
         remaining = TIME_LIMIT_SECONDS - (elapsed_milliseconds/1000.0)
 
-        if remaining <= 0 or result is not None:
+        if (len(answers) == NUM_QUESTIONS):
+            screen.fill((30, 30, 30))
+            done_text = _font.render("Test Complete!", True, (0, 255, 0))
+            done_pos = (screen.get_width() - done_text.get_width() - 20, 20)
+            screen.blit(done_text, done_pos)
+            pg.display.flip()
+            time.sleep(5)
+            done = True
+
+        elif remaining <= 0 or result is not None:
             time_taken = (TIME_LIMIT_SECONDS if (remaining <= 0 and result is None) else elapsed_milliseconds) 
             answer = make_log_entry(current_problem, result, time_taken)
             answers.append(answer)
@@ -104,6 +113,9 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
 
             points = get_new_points(points, mode, answer[USER_ANSWER_KEY] == answer[SOLUTION_KEY])
             problem_start = pg.time.get_ticks()
+
+            if len(answers) >= min(NUM_QUESTIONS, len(problems)):
+                continue  # don't index past end; next loop shows completion screen
 
             current_problem = problems[len(answers)]
             choices = [current_problem[SOLUTION_KEY], current_problem[INCORRECT_KEY_1],current_problem[INCORRECT_KEY_2]]
@@ -125,15 +137,6 @@ def interface(output_filename: str = "x.test.json", mode: Mode = Mode.BASELINE):
             screen.blit(points_surface, points_pos)
 
         pg.display.flip()
-
-        if (len(answers) == NUM_QUESTIONS):
-            screen.fill((30, 30, 30))
-            done_text = _font.render("Test Complete!", True, (0, 255, 0))
-            done_pos = (screen.get_width() - done_text.get_width() - 20, 20)
-            screen.blit(done_text, done_pos)
-            pg.display.flip()
-            time.sleep(5)
-            done = True
         
 
 
