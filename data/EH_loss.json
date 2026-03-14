@@ -1,0 +1,162 @@
+[
+    {
+        "problem": "144 / 12",
+        "solution": 12,
+        "user_answer": 12,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2037
+    },
+    {
+        "problem": "468 + 357",
+        "solution": 825,
+        "user_answer": 0,
+        "correct": false,
+        "answered": false,
+        "time_taken": 10
+    },
+    {
+        "problem": "2000 - 945",
+        "solution": 1055,
+        "user_answer": 1055,
+        "correct": true,
+        "answered": true,
+        "time_taken": 6403
+    },
+    {
+        "problem": "42 * 16",
+        "solution": 672,
+        "user_answer": 0,
+        "correct": false,
+        "answered": false,
+        "time_taken": 10
+    },
+    {
+        "problem": "1800 - 760",
+        "solution": 1040,
+        "user_answer": 1040,
+        "correct": true,
+        "answered": true,
+        "time_taken": 7364
+    },
+    {
+        "problem": "36 * 24",
+        "solution": 864,
+        "user_answer": 844,
+        "correct": false,
+        "answered": true,
+        "time_taken": 8920
+    },
+    {
+        "problem": "1200 - 475",
+        "solution": 725,
+        "user_answer": 725,
+        "correct": true,
+        "answered": true,
+        "time_taken": 6724
+    },
+    {
+        "problem": "192 / 16",
+        "solution": 12,
+        "user_answer": 12,
+        "correct": true,
+        "answered": true,
+        "time_taken": 6616
+    },
+    {
+        "problem": "96 / 12",
+        "solution": 8,
+        "user_answer": 8,
+        "correct": true,
+        "answered": true,
+        "time_taken": 4636
+    },
+    {
+        "problem": "739 + 285",
+        "solution": 1024,
+        "user_answer": 0,
+        "correct": false,
+        "answered": false,
+        "time_taken": 10
+    },
+    {
+        "problem": "48 * 25",
+        "solution": 1200,
+        "user_answer": 1250,
+        "correct": false,
+        "answered": true,
+        "time_taken": 148
+    },
+    {
+        "problem": "375 + 468",
+        "solution": 843,
+        "user_answer": 843,
+        "correct": true,
+        "answered": true,
+        "time_taken": 8020
+    },
+    {
+        "problem": "45 * 18",
+        "solution": 810,
+        "user_answer": 0,
+        "correct": false,
+        "answered": false,
+        "time_taken": 10
+    },
+    {
+        "problem": "1500 - 680",
+        "solution": 820,
+        "user_answer": 820,
+        "correct": true,
+        "answered": true,
+        "time_taken": 6428
+    },
+    {
+        "problem": "856 + 179",
+        "solution": 1035,
+        "user_answer": 0,
+        "correct": false,
+        "answered": false,
+        "time_taken": 10
+    },
+    {
+        "problem": "1400 - 575",
+        "solution": 825,
+        "user_answer": 815,
+        "correct": false,
+        "answered": true,
+        "time_taken": 236
+    },
+    {
+        "problem": "225 / 15",
+        "solution": 15,
+        "user_answer": 15,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3320
+    },
+    {
+        "problem": "168 / 14",
+        "solution": 12,
+        "user_answer": 12,
+        "correct": true,
+        "answered": true,
+        "time_taken": 5368
+    },
+    {
+        "problem": "32 * 27",
+        "solution": 864,
+        "user_answer": 864,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3648
+    },
+    {
+        "problem": "584 + 376",
+        "solution": 960,
+        "user_answer": 960,
+        "correct": true,
+        "answered": true,
+        "time_taken": 6480
+    }
+]
