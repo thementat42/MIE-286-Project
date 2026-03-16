@@ -1,9 +1,9 @@
 [
     {
-        "problem": "48 * 25",
-        "solution": 1200,
-        "option1": 1250,
-        "option2": 1150
+        "problem": "48 * 3",
+        "solution": 144,
+        "option1": 154,
+        "option2": 134
     },
     {
         "problem": "96 / 12",
@@ -60,10 +60,10 @@
         "option2": 10
     },
     {
-        "problem": "740 + 285",
-        "solution": 1025,
-        "option1": 1015,
-        "option2": 1035
+        "problem": "74 + 28",
+        "solution": 102,
+        "option1": 103,
+        "option2": 104
     },
     {
         "problem": "200 - 94",
@@ -74,7 +74,7 @@
     {
         "problem": "32 * 7",
         "solution": 224,
-        "option1": 843,
+        "option1": 234,
         "option2": 244
     },
     {
