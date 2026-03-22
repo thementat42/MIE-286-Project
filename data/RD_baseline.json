@@ -1,0 +1,162 @@
+[
+    {
+        "problem": "34 + 27",
+        "solution": 61,
+        "user_answer": 61,
+        "correct": true,
+        "answered": true,
+        "time_taken": 4430
+    },
+    {
+        "problem": "96 / 8",
+        "solution": 12,
+        "user_answer": 12,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3066
+    },
+    {
+        "problem": "24 * 3",
+        "solution": 72,
+        "user_answer": 72,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2716
+    },
+    {
+        "problem": "57 + 26",
+        "solution": 83,
+        "user_answer": 83,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3636
+    },
+    {
+        "problem": "72 / 9",
+        "solution": 8,
+        "user_answer": 8,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3016
+    },
+    {
+        "problem": "72 - 28",
+        "solution": 44,
+        "user_answer": 44,
+        "correct": true,
+        "answered": true,
+        "time_taken": 5367
+    },
+    {
+        "problem": "63 / 7",
+        "solution": 9,
+        "user_answer": 9,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2216
+    },
+    {
+        "problem": "23 * 3",
+        "solution": 69,
+        "user_answer": 69,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2916
+    },
+    {
+        "problem": "84 / 6",
+        "solution": 14,
+        "user_answer": 14,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2617
+    },
+    {
+        "problem": "21 * 4",
+        "solution": 84,
+        "user_answer": 84,
+        "correct": true,
+        "answered": true,
+        "time_taken": 1817
+    },
+    {
+        "problem": "65 + 17",
+        "solution": 82,
+        "user_answer": 82,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2217
+    },
+    {
+        "problem": "81 - 46",
+        "solution": 35,
+        "user_answer": 35,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2900
+    },
+    {
+        "problem": "18 * 4",
+        "solution": 72,
+        "user_answer": 76,
+        "correct": false,
+        "answered": true,
+        "time_taken": 2966
+    },
+    {
+        "problem": "48 + 29",
+        "solution": 77,
+        "user_answer": 77,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3983
+    },
+    {
+        "problem": "90 - 37",
+        "solution": 53,
+        "user_answer": 53,
+        "correct": true,
+        "answered": true,
+        "time_taken": 4017
+    },
+    {
+        "problem": "56 / 8",
+        "solution": 7,
+        "user_answer": 7,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3517
+    },
+    {
+        "problem": "16 * 5",
+        "solution": 80,
+        "user_answer": 80,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2167
+    },
+    {
+        "problem": "47 + 36",
+        "solution": 83,
+        "user_answer": 83,
+        "correct": true,
+        "answered": true,
+        "time_taken": 2717
+    },
+    {
+        "problem": "74 - 38",
+        "solution": 36,
+        "user_answer": 36,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3999
+    },
+    {
+        "problem": "58 - 19",
+        "solution": 39,
+        "user_answer": 39,
+        "correct": true,
+        "answered": true,
+        "time_taken": 3566
+    }
+]
