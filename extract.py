@@ -65,4 +65,4 @@ def write_file(filename: str):
     with open(filename, 'w') as f:
         json.dump(result, f)
 
-write_file("x.test.json")
+write_file("averaged_data.json")
