@@ -1,65 +1,68 @@
 import json
 import os
+from typing import Literal
+
+DATA_PATH = "data"
+
+def get_data(feedback_type: Literal["gain"]|Literal["loss"]):
+    path = os.path.join(DATA_PATH, feedback_type + "_data")
+    for file in os.listdir(path):
+        if feedback_type not in file:
+            continue
+        name = file.split("_")[0]
+        baseline = name + "_baseline.json"
+        with open(os.path.join(path, file)) as f:
+            feedback_data = json.load(f)
+        with open(os.path.join(path, baseline)) as f:
+            baseline_data = json.load(f)
+        yield baseline_data, feedback_data
+
+def process(feedback_type: Literal["gain"]|Literal["loss"]):
+    data = list(get_data(feedback_type))
+    baseline_scores: list[float] = []
+    baseline_times: list[float] = []
+    feedback_scores: list[float] = []
+    feedback_times: list[float] = []
+
+    for participant in data:
+        baseline, feedback = participant
+        baseline_score = sum(problem['correct'] for problem in baseline)/len(baseline)
+        baseline_time = sum(problem['time_taken'] for problem in baseline)/len(baseline)
+
+        feedback_score = sum(problem['correct'] for problem in feedback)/len(feedback)
+        feedback_time = sum(problem['time_taken'] for problem in feedback)/len(feedback)
+
+        baseline_scores.append(baseline_score)
+        baseline_times.append(baseline_time)
+       
+        feedback_scores.append(feedback_score)
+        feedback_times.append(feedback_time)
 
 
-def get_score(test):
-    total = len(test)
-    mark = 0
-    for question in test:
-        if question["correct"] == True:
-            mark += 1
-    return mark/total
-
-def get_avg_time(test):
-    total_time = 0
-    for question in test:
-        total_time += question["time_taken"]
+        #print( f"{name}:\nBaseline: {baseline_score}, {baseline_time}\n{feedback_type}: {feedback_score}, {feedback_time}",end = "\n"+ "-"*50+"\n")
     
-    return total_time/20
+    return baseline_scores, baseline_times, feedback_scores, feedback_times
 
+def write_file(filename: str):
+    gain_baseline_scores, gain_baseline_times, gain_feedback_scores, gain_feedback_times = process("gain")
+    loss_baseline_scores, loss_baseline_times, loss_feedback_scores, loss_feedback_times = process("loss")
 
-if __name__ == "__main__":
+    assert len(gain_baseline_scores) == len(gain_baseline_times) == len(gain_feedback_scores) == len(gain_feedback_times)
+    assert len(loss_baseline_scores) == len(loss_baseline_times) == len(loss_feedback_scores) == len(loss_feedback_times)
 
-    DATA_PATH = "data/gain_data"
+    result = {
+        "gain_baseline_accuracy": gain_baseline_scores,
+        "gain_baseline_response_time": gain_baseline_times,
+        "gain_feedback_accuracy": gain_feedback_scores,
+        "gain_feedback_response_time": gain_feedback_times,
+        
+        "loss_baseline_accuracy": loss_baseline_scores,
+        "loss_baseline_response_time": loss_baseline_times,
+        "loss_feedback_accuracy": loss_feedback_scores,
+        "loss_feedback_response_time": loss_feedback_times,
+    }
 
-    gains = []
-    gain_baselines = []
+    with open(filename, 'w') as f:
+        json.dump(result, f)
 
-    gains_scores = []
-    baseline_scores = []
-    gains_times = []
-    baseline_times = []
-
-    for file in os.listdir(DATA_PATH):
-        if "gain" in file:
-            # print(file)
-            with open(os.path.join(DATA_PATH, file)) as f:
-                gains.append(json.load(f))
-                # print(files)
-
-    for file in os.listdir(DATA_PATH):
-        if "baseline" in file:
-            # print(file)
-            with open(os.path.join(DATA_PATH, file)) as f:
-                gain_baselines.append(json.load(f))
-                # print(files)
-
-    # print(gains[0][0]["problem"])
-    # print(gain_baselines[0])
-    # print(gains[0])
-    print(get_score(gains[15]))
-
-    for testg in gains:
-        gains_scores.append(get_score(testg))
-    for testg_time in gains:
-        gains_times.append(get_avg_time(testg_time))
-
-    for testb in gain_baselines:
-        baseline_scores.append(get_score(testb))
-    for testb_time in gain_baselines:
-        baseline_times.append(get_avg_time(testb_time))
-
-    print(gains_scores)
-    print(gains_times)
-    print(baseline_scores)
-    print(baseline_times)
+write_file("x.test.json")
