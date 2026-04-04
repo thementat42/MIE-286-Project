@@ -21,7 +21,7 @@ qqnorm(relative_loss_feedback_accuracy, main = "Relative Loss-Based Feedback Acc
 qqnorm(relative_loss_feedback_response_time, main = "Relative Loss-Based Feedback Response Time Normal Q-Q Plot")
 
 t.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, paired=T)
-t.test(relative_gain_feedback_accuracy, relative_loss_feedback_accuracy, paired=T)
-t.test(gain_feedback_response_time, loss_feedback_response_time, paired=T)
-t.test(relative_gain_feedback_response_time, relative_loss_feedback_response_time, paired=T)
+t.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, paired=T)
+t.test(gain_feedback_response_time[1:14], loss_feedback_response_time, paired=T)
+t.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, paired=T)
   
