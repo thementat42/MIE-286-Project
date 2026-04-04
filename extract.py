@@ -7,6 +7,7 @@ DATA_PATH = "data"
 def get_data(feedback_type: Literal["gain"]|Literal["loss"]):
     path = os.path.join(DATA_PATH, feedback_type + "_data")
     for file in os.listdir(path):
+        file = file.lower()
         if feedback_type not in file:
             continue
         name = file.split("_")[0]
