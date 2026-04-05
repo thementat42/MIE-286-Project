@@ -24,4 +24,9 @@ t.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, paired=T)
 t.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, paired=T)
 t.test(gain_feedback_response_time[1:14], loss_feedback_response_time, paired=T)
 t.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, paired=T)
-  
+
+# var.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, ratio = 1, conf.level=0.95)
+# var.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, ratio = 1, conf.level=0.95)
+# var.test(gain_feedback_response_time[1:14], loss_feedback_response_time, ratio = 1, conf.level=0.95)
+# var.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, ratio = 1, conf.level=0.95)
+
