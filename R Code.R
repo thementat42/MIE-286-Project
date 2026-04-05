@@ -33,12 +33,25 @@ boxplot(gain_feedback_accuracy, loss_feedback_accuracy,
         ylab = "Accuracy",
         col = c("lightblue", "lightcoral"))
 
+stripchart(list(gain_feedback_accuracy, loss_feedback_accuracy),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
+
 boxplot(gain_feedback_response_time, loss_feedback_response_time,
         names = c("Gain", "Loss"),
         main = "Response Time by Feedback Type (Absolute)",
         ylab = "Response Time (ms)",
         col = c("lightblue", "lightcoral"))
 
+stripchart(list(gain_feedback_response_time, loss_feedback_response_time),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
 
 par(mfrow = c(1, 2)) 
 
@@ -48,8 +61,22 @@ boxplot(relative_gain_feedback_accuracy, relative_loss_feedback_accuracy,
         ylab = "Accuracy",
         col = c("lightblue", "lightcoral"))
 
+stripchart(list(relative_gain_feedback_accuracy, relative_loss_feedback_accuracy),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
+
 boxplot(relative_gain_feedback_response_time, relative_loss_feedback_response_time,
         names = c("Gain", "Loss"),
         main = "Response Time by Feedback Type (Relative to Basline)",
         ylab = "Response Time (ms)",
         col = c("lightblue", "lightcoral"))
+
+stripchart(list(relative_gain_feedback_response_time, relative_loss_feedback_response_time),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
