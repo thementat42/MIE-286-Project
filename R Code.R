@@ -24,7 +24,8 @@ t.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, paired=T)
 t.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, paired=T)
 t.test(gain_feedback_response_time[1:14], loss_feedback_response_time, paired=T)
 t.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, paired=T)
- 
+
+par(mfrow = c(1, 2)) 
  
 boxplot(gain_feedback_accuracy, loss_feedback_accuracy,
         names = c("Gain", "Loss"),
@@ -38,6 +39,8 @@ boxplot(gain_feedback_response_time, loss_feedback_response_time,
         ylab = "Response Time (ms)",
         col = c("lightblue", "lightcoral"))
 
+
+par(mfrow = c(1, 2)) 
 
 boxplot(relative_gain_feedback_accuracy, relative_loss_feedback_accuracy,
         names = c("Gain", "Loss"),
