@@ -1,7 +1,7 @@
 install.packages("rjson")
 library("rjson")
 
-averaged_data <- fromJSON(file = "C:\\Users\\surhi\\OneDrive\\Documents\\U of T 2025-2026\\Winter\\MIE286\\MIE-286-Project\\averaged_data.json")
+averaged_data <- fromJSON(file = "averaged_data.json")
 # print(averaged_data)
 
 attach(averaged_data)
@@ -25,8 +25,58 @@ t.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, p
 t.test(gain_feedback_response_time[1:14], loss_feedback_response_time, paired=T)
 t.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, paired=T)
 
-# var.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, ratio = 1, conf.level=0.95)
-# var.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, ratio = 1, conf.level=0.95)
-# var.test(gain_feedback_response_time[1:14], loss_feedback_response_time, ratio = 1, conf.level=0.95)
-# var.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, ratio = 1, conf.level=0.95)
+par(mfrow = c(1, 2)) 
+ 
+boxplot(gain_feedback_accuracy, loss_feedback_accuracy,
+        names = c("Gain", "Loss"),
+        main = "Accuracy by Feedback Type (Absolute)",
+        ylab = "Accuracy",
+        col = c("lightblue", "lightcoral"))
 
+stripchart(list(gain_feedback_accuracy, loss_feedback_accuracy),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
+
+boxplot(gain_feedback_response_time, loss_feedback_response_time,
+        names = c("Gain", "Loss"),
+        main = "Response Time by Feedback Type (Absolute)",
+        ylab = "Response Time (ms)",
+        col = c("lightblue", "lightcoral"))
+
+stripchart(list(gain_feedback_response_time, loss_feedback_response_time),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
+
+par(mfrow = c(1, 2)) 
+
+boxplot(relative_gain_feedback_accuracy, relative_loss_feedback_accuracy,
+        names = c("Gain", "Loss"),
+        main = "Accuracy by Feedback Type (Relative to Basline)",
+        ylab = "Accuracy",
+        col = c("lightblue", "lightcoral"))
+
+stripchart(list(relative_gain_feedback_accuracy, relative_loss_feedback_accuracy),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
+
+boxplot(relative_gain_feedback_response_time, relative_loss_feedback_response_time,
+        names = c("Gain", "Loss"),
+        main = "Response Time by Feedback Type (Relative to Basline)",
+        ylab = "Response Time (ms)",
+        col = c("lightblue", "lightcoral"))
+
+stripchart(list(relative_gain_feedback_response_time, relative_loss_feedback_response_time),
+           method = "jitter",
+           pch = 16,
+           col = rgb(0, 0, 0, 0.5),
+           vertical = TRUE,
+           add = TRUE)
