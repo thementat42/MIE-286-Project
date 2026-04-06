@@ -3,8 +3,8 @@ library("rjson")
 install.packages("car")
 library(car)
 
+# Loading data from the JSON file
 averaged_data <- fromJSON(file = "averaged_data.json")
-# print(averaged_data)
 
 attach(averaged_data)
 
@@ -83,23 +83,18 @@ qqPlot(relative_loss_feedback_response_time, distribution = "norm",
        envelope=0.95,
        line = c("robust"))
 
-# qqnorm(gain_feedback_accuracy, main = "Gain-Based Feedback Accuracy Normal Q-Q Plot")
-# qqnorm(gain_feedback_response_time, main = "Gain-Based Feedback Response Time Normal Q-Q Plot")
-# qqnorm(loss_feedback_accuracy, main = "Loss-Based Feedback Accuracy Normal Q-Q Plot")
-# qqnorm(loss_feedback_response_time, main = "Loss-Based Feedback Response Time Normal Q-Q Plot")
-# qqnorm(relative_gain_feedback_accuracy, main = "Relative Gain-Based Feedback Accuracy Normal Q-Q Plot")
-# qqnorm(relative_gain_feedback_response_time, main = "Relative Gain-Based Feedback Response Time Normal Q-Q Plot")
-# qqnorm(relative_loss_feedback_accuracy, main = "Relative Loss-Based Feedback Accuracy Normal Q-Q Plot")
-# qqnorm(relative_loss_feedback_response_time, main = "Relative Loss-Based Feedback Response Time Normal Q-Q Plot")
-
 # One-sided t-tests
 
 ## Loss vs. baseline
 t.test(loss_feedback_accuracy, loss_baseline_accuracy,
        alternative = c("greater"), paired=TRUE)
+t.test(loss_feedback_response_time, loss_baseline_response_time,
+       alternative = c("greater"), paired=TRUE)
 
 ## Gain vs. baseline
 t.test(gain_feedback_accuracy, gain_baseline_accuracy,
+       alternative = c("greater"), paired=TRUE)
+t.test(gain_feedback_response_time, gain_baseline_response_time,
        alternative = c("greater"), paired=TRUE)
 
 ## Loss vs. Gain
@@ -113,12 +108,31 @@ t.test(relative_loss_feedback_response_time, relative_gain_feedback_response_tim
        alternative = c("greater"), paired=FALSE)
 
 # Two-sided t-tests
-t.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, paired=FALSE)
-t.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, paired=FALSE)
-t.test(gain_feedback_response_time[1:14], loss_feedback_response_time, paired=FALSE)
-t.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, paired=FALSE)
+
+## Loss vs. baseline
+t.test(loss_feedback_accuracy, loss_baseline_accuracy,
+       alternative = c("two.sided"), paired=TRUE)
+t.test(loss_feedback_response_time, loss_baseline_response_time,
+       alternative = c("two.sided"), paired=TRUE)
+
+## Gain vs. baseline
+t.test(gain_feedback_accuracy, gain_baseline_accuracy,
+       alternative = c("two.sided"), paired=TRUE)
+t.test(gain_feedback_response_time, gain_baseline_response_time,
+       alternative = c("two.sided"), paired=TRUE)
+
+## Loss vs. Gain
+t.test(loss_feedback_accuracy, gain_feedback_accuracy[1:14], 
+       alternative = c("two.sided"), paired=FALSE)
+t.test(relative_loss_feedback_accuracy, relative_gain_feedback_accuracy[1:14], 
+       alternative = c("two.sided"), paired=FALSE)
+t.test(loss_feedback_response_time, gain_feedback_response_time[1:14], 
+       alternative = c("two.sided"), paired=FALSE)
+t.test(relative_loss_feedback_response_time, relative_gain_feedback_response_time[1:14], 
+       alternative = c("two.sided"), paired=FALSE)
 
 # Histograms
+
 ## GAIN
 hist(gain_baseline_accuracy, 
      main = paste("Accuracy for Baseline Trials (Gain-Based Feedback Participants)"),
@@ -161,6 +175,8 @@ hist(relative_loss_feedback_response_time,
      main = paste("Relative Response Time for Loss-Based Feedback Trials"),
      xlab =  "Accuracy", axes = TRUE, plot = TRUE)
 
+
+# Box Plots 
 
 par(mfrow = c(1, 2)) 
  
