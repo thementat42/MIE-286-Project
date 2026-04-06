@@ -15,15 +15,29 @@ relative_gain_feedback_response_time = gain_feedback_response_time - gain_baseli
 relative_loss_feedback_accuracy = loss_feedback_accuracy - loss_baseline_accuracy
 relative_loss_feedback_response_time = loss_feedback_response_time - loss_baseline_response_time
 
+# Q-Q plots
 qqnorm(relative_gain_feedback_accuracy, main = "Relative Gain-Based Feedback Accuracy Normal Q-Q Plot")
 qqnorm(relative_gain_feedback_response_time, main = "Relative Gain-Based Feedback Response Time Normal Q-Q Plot")
 qqnorm(relative_loss_feedback_accuracy, main = "Relative Loss-Based Feedback Accuracy Normal Q-Q Plot")
 qqnorm(relative_loss_feedback_response_time, main = "Relative Loss-Based Feedback Response Time Normal Q-Q Plot")
 
+# One-sided t-tests
+
+## Loss vs. baseline
+
+## Gain vs. baseline
+
+## Loss vs. Gain
 t.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, paired=T)
 t.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, paired=T)
 t.test(gain_feedback_response_time[1:14], loss_feedback_response_time, paired=T)
 t.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, paired=T)
+
+# Two-sided t-tests
+t.test(gain_feedback_accuracy[1:14], loss_feedback_accuracy, paired=FALSE)
+t.test(relative_gain_feedback_accuracy[1:14], relative_loss_feedback_accuracy, paired=FALSE)
+t.test(gain_feedback_response_time[1:14], loss_feedback_response_time, paired=FALSE)
+t.test(relative_gain_feedback_response_time[1:14], relative_loss_feedback_response_time, paired=FALSE)
 
 par(mfrow = c(1, 2)) 
  
