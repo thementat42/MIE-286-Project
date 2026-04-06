@@ -18,34 +18,45 @@ relative_loss_feedback_response_time = loss_feedback_response_time - loss_baseli
 
 ## Baselines
 qqPlot(gain_baseline_accuracy, distribution = "norm", 
-       main = "Baseline Accuracy Normal Q-Q Plot (Gain-Based Feedback Participants)",
+       main = "Baseline Accuracy (Gain-Based Feedback Participants)",
        ylab = "sample quantiles",
        envelope=0.95,
        line = c("robust"))
 qqPlot(gain_baseline_response_time, distribution = "norm", 
-       main = "Baseline Response Time Normal Q-Q Plot (Gain-Based Feedback Participants)",
+       main = "Baseline Response Time (Gain-Based Feedback Participants)",
        ylab = "sample quantiles",
        envelope=0.95,
        line = c("robust"))
 qqPlot(loss_baseline_accuracy, distribution = "norm", 
-       main = "Baseline Accuracy Normal Q-Q Plot (Loss-Based Feedback Participants)",
+       main = "Baseline Accuracy (Loss-Based Feedback Participants)",
        ylab = "sample quantiles",
        envelope=0.95,
        line = c("robust"))
 qqPlot(loss_baseline_response_time, distribution = "norm", 
-       main = "Baseline Response Time Normal Q-Q Plot (Loss-Based Feedback Participants)",
+       main = "Baseline Response Time (Loss-Based Feedback Participants)",
        ylab = "sample quantiles",
        envelope=0.95,
        line = c("robust"))
 
 ## GAIN
 qqPlot(gain_feedback_accuracy, distribution = "norm", 
-       main = "Gain-Based Feedback Accuracy Normal Q-Q Plot",
+       main = "Accuracy for Gain-Based Feedback Normal Q-Q Plot",
        ylab = "sample quantiles",
        envelope=0.95,
        line = c("robust"))
 qqPlot(gain_feedback_response_time, distribution = "norm", 
-       main = "Gain-Based Feedback Response Time Normal Q-Q Plot",
+       main = "Response Time for Gain-Based Feedback Normal Q-Q Plot",
+       ylab = "sample quantiles",
+       envelope=0.95,
+       line = c("robust"))
+
+qqPlot(relative_gain_feedback_accuracy, distribution = "norm", 
+       main = "Relative Accuracy for Gain-Based Feedback Normal Q-Q Plot",
+       ylab = "sample quantiles",
+       envelope=0.95,
+       line = c("robust"))
+qqPlot(relative_gain_feedback_response_time, distribution = "norm", 
+       main = "Relative Response Time for Gain-Based Feedback Normal Q-Q Plot",
        ylab = "sample quantiles",
        envelope=0.95,
        line = c("robust"))
@@ -61,7 +72,16 @@ qqPlot(loss_feedback_response_time, distribution = "norm",
        ylab = "sample quantiles",
        envelope=0.95,
        line = c("robust"))
-
+qqPlot(relative_loss_feedback_accuracy, distribution = "norm", 
+       main = "Relative Accuracy for Loss-Based Feedback Normal Q-Q Plot",
+       ylab = "sample quantiles",
+       envelope=0.95,
+       line = c("robust"))
+qqPlot(relative_loss_feedback_response_time, distribution = "norm", 
+       main = "Relative Response Time for Loss-Based Feedback Normal Q-Q Plot",
+       ylab = "sample quantiles",
+       envelope=0.95,
+       line = c("robust"))
 
 # qqnorm(gain_feedback_accuracy, main = "Gain-Based Feedback Accuracy Normal Q-Q Plot")
 # qqnorm(gain_feedback_response_time, main = "Gain-Based Feedback Response Time Normal Q-Q Plot")
