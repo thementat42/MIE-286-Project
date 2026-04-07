@@ -1,0 +1,65 @@
+\documentclass[12pt]{exam}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[
+backend=biber,
+style=ieee,
+]{biblatex}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
+\addbibresource{proposal_sources.bib} %Imports bibliography file
+
+\author{Mahtasim Bhuiyan, Rahi Thurairajah, Gaby Wang}
+\date{February 14, 2026}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+
+\begin{center}
+\Large{\underline{The impact of points-based feedback on}}
+
+\Large{\underline{mental math performance}}
+\end{center}
+\begin{center}
+Mahtasim Bhuiyan, Rahi Thurairajah, Gaby Wang
+\end{center}
+\begin{center}
+February 15, 2026
+\end{center}
+
+\section{Introduction}
+In many settings, such as education and video games, points are used to measure people’s success in performing tasks. There are two main approaches to doing this. In educational settings, points are often gains-based -- on a test, scores begin at 0\%; students earn points as they get questions correct until the test is fully marked, at which point they have a final score (say 75/100 points earned). In video games, the opposite is true, with points being loss-based -- a player may start with 5 lives and loses lives when they make a mistake until they reach 0 or until they finish the game.
+\\
+\\
+Our aim is to investigate which of these two forms of feedback -- gains-based (“you earned 10 points”), versus loss-based (“you lost 10 points; you have 90 points remaining”) -- is more effective in driving performance on tests amongst university students. We will use mental math tests with points systems and compare performance across these to determine effectiveness.
+
+\section{Experimental Design and Methods}
+\subsection{Measured Variables}
+We will have two measured variables: accuracy (measuring the error between a user’s solution and the true solution) and response time (how long it takes users to input an answer, with an upper limit of 15 seconds). This information will be presented to them on a piece of paper to ensure all participants receive the same information and avoid bias in other presentation formats (such as the instructions being read out).
+\subsection{Test Design}
+To administer a test, we will write a small program with a simple user interface that shows 20 mental math problems, one at a time, and a timer showing the amount of time that is left to answer a single question (maximum 15 seconds). The program will keep track of the participants’ mean error rate and response time. Error will be calculated as the absolute fractional difference between the true solution and the participant’s guess (we will ensure beforehand no question has 0 as a solution):
+
+\begin{equation}
+    \label{eq:error}
+    \varepsilon = \left|\frac{\text{Response}-\text{Correct Answer}}{\text{Correct Answer}}\right|
+\end{equation}
+
+Participants, who will be randomly sampled engineering students at U of T, will be split into two groups. One group will earn points on correct answers to maximum of 20 points, the other will lose points on incorrect answers, beginning with 20. Participants will not be informed how many questions there are to ensure that the gain-based group does not interpret their score as a fraction (e.g. 15/20) as this may trigger loss-based thinking. We will randomly assign participants to a group, ensuring a minimum of 12 for each feedback type (this may require some non-random assignment at the end). Participants will only be told which group they are in when they begin the test to avoid any preparation on their end for the task. To minimize the influence of external factors (such as noise making it hard to focus), we will attempt to administer the task in a quiet environment such as a library. However, we recognize that this may not always be possible. Each group will be given the same questions in the same order to control for test difficulty. The user interface display will be the same between the two groups.
+
+\subsection{Covariates}
+Due to variation in individuals’ mental math abilities, we will also have participants do a short baseline test without any point-based feedback and determine the mean error and response time for each participant. These will be used to find each participant's percent change in mean error and response time when tested with feedback compared to their baseline results. These percent change values will be used in the data analysis to account for differences in individual ability. 
+
+% This also ensures that a participant having extraordinary mental math skills does not skew the results.
+
+% This score will be included as a covariate in analysis to reduce the influence of mental math abilities on our data.
+\section{Hypothesis}
+We hypothesize that the loss-based feedback will result in higher accuracy (i.e., lower error rates) on the tests. There is some preliminary research in this area from the NIH \cite{nih-paper}; also, from an intuitive perspective, we believe that seeing how many points are left in the loss-based approach will motivate people to spend more time calculating their answer. We then also hypothesize that the gain-based feedback will result in faster response times; since there is no penalty for incorrect answers, we believe that people will be more willing to make an estimate of the answer and gain some points than risk not answering at all.
+
+\section{Analysis Plan}
+The data will be analysed to produce three outcomes. First, the correlation coefficient $\rho$ between response time and error for each participant will be calculated. This will show whether these variables have a linear relationship and the strength of that relationship. If a strong linear relationship is found, the $\rho$ values among the participants will be averaged for each group to see whether the type of feedback affects this relationship. Second, an independent-samples t-test \cite{t-tests} will be conducted to compare the percent changes in mean accuracy between both groups and determine whether there is a statistically significant difference. Third, the t-test will be conducted to compare the percent changes in response time between both groups with the same goal.
+
+\medskip\newpage
+\printbibliography
+\end{document}

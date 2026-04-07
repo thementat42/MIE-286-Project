@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Introduction and Background}{1}{section.1}%
+\contentsline {section}{\numberline {2}Methods}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Experimental Process}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Variables}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Control Conditions}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Limitations}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Analysis}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Hypotheses}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Analysis Process}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Results}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Box Plots and Histograms}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Q-Q plots}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}$t$-tests}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Limitations}{9}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}%
+\contentsline {section}{\numberline {A}QQ Plots for Normality Checks}{12}{appendix.A}%
+\contentsline {section}{\numberline {B}Script for Participants}{17}{appendix.B}%
+\contentsline {section}{\numberline {C}R code for preprocessing the raw data}{18}{appendix.C}%
+\contentsline {section}{\numberline {D}R code for analysis}{21}{appendix.D}%
+\contentsline {section}{\numberline {E}Boxplots}{26}{appendix.E}%
+\contentsline {section}{\numberline {F}Histograms}{27}{appendix.F}%
+\contentsline {section}{\numberline {G}Participant Comments After Finishing Feedback and Baseline Problem Sets}{33}{appendix.G}%
