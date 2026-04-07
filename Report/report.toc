@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {4.2}Q-Q plots}{7}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}$t$-tests}{8}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Limitations}{9}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}%
+\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%
 \contentsline {section}{\numberline {A}QQ Plots for Normality Checks}{12}{appendix.A}%
 \contentsline {section}{\numberline {B}Script for Participants}{17}{appendix.B}%
 \contentsline {section}{\numberline {C}R code for preprocessing the raw data}{18}{appendix.C}%
