@@ -6,3 +6,9 @@ x.*
 .RData
 .Rhistory
 Project.Rproj
+Report/*
+!Report/images/
+!Report/*.tex
+!Report/*.bib
+!Report/*.pdf
+!Report/*.toc
